@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>강서중학교 연구부 업무 안내 · 신규·전입 교사용</title>
+<style>
+  :root{
+    --bg:#f6f7fb; --card:#ffffff; --ink:#1f2430; --sub:#5b6472; --line:#e6e9f0;
+    --brand:#2f5bea; --brand-soft:#eaf0ff; --accent:#0e9f6e; --accent-soft:#e6f7f0;
+    --warn:#b45309; --warn-soft:#fdf3e6; --shadow:0 1px 2px rgba(20,30,60,.06),0 8px 24px rgba(20,30,60,.06);
+    --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Pretendard','Pretendard Variable',-apple-system,BlinkMacSystemFont,'Malgun Gothic','맑은 고딕','Apple SD Gothic Neo',system-ui,sans-serif;
+    line-height:1.65; -webkit-font-smoothing:antialiased; font-feature-settings:"tnum";
+  }
+  a{color:inherit}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+  /* ===== Header ===== */
+  header.hero{
+    background:linear-gradient(135deg,#2f5bea 0%,#5b7cf0 55%,#7b6cf0 100%);
+    color:#fff;padding:56px 0 46px;position:relative;overflow:hidden;
+  }
+  header.hero::after{content:"";position:absolute;right:-80px;top:-80px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.10)}
+  header.hero::before{content:"";position:absolute;left:-60px;bottom:-120px;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.08)}
+  .hero .tag{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);
+    padding:6px 14px;border-radius:999px;font-size:13px;font-weight:600;letter-spacing:.02em;backdrop-filter:blur(4px)}
+  .hero h1{margin:18px 0 8px;font-size:34px;font-weight:800;letter-spacing:-.02em;line-height:1.25}
+  .hero p{margin:0;font-size:16px;color:rgba(255,255,255,.92);max-width:640px}
+  .hero .meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px}
+  .hero .meta span{background:rgba(255,255,255,.14);border-radius:10px;padding:8px 12px;font-size:13.5px;font-weight:500}
+
+  /* ===== Nav ===== */
+  nav.toc{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);}
+  nav.toc .wrap{display:flex;gap:6px;overflow-x:auto;padding:10px 20px;scrollbar-width:none}
+  nav.toc .wrap::-webkit-scrollbar{display:none}
+  nav.toc a{white-space:nowrap;font-size:13.5px;font-weight:600;color:var(--sub);text-decoration:none;
+    padding:8px 12px;border-radius:9px;transition:.15s}
+  nav.toc a:hover{background:var(--brand-soft);color:var(--brand)}
+
+  section{padding:40px 0 8px}
+  .sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+  .sec-head h2{font-size:23px;font-weight:800;letter-spacing:-.01em;margin:0}
+  .sec-head .kr{color:var(--sub);font-size:14px;font-weight:600}
+  .lead{color:var(--sub);font-size:15.5px;margin:6px 0 22px;max-width:760px}
+
+  /* ===== Intro cards ===== */
+  .grid{display:grid;gap:16px}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .mini{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 18px 16px;box-shadow:var(--shadow)}
+  .mini .ic{font-size:22px}
+  .mini h4{margin:8px 0 4px;font-size:15.5px;font-weight:700}
+  .mini p{margin:0;font-size:13.5px;color:var(--sub);line-height:1.55}
+
+  /* ===== Staff ===== */
+  .staff{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .person{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+  .person .top{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+  .avatar{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-weight:800;color:#fff;font-size:18px}
+  .person h4{margin:0;font-size:17px;font-weight:800}
+  .person .role{font-size:13px;color:var(--sub);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
+  .chip{font-size:12.5px;font-weight:600;background:var(--brand-soft);color:#2544b8;border-radius:8px;padding:5px 10px}
+  .chip.g{background:var(--accent-soft);color:#0b7a54}
+
+  /* ===== Task cards ===== */
+  .tasks{display:grid;gap:14px}
+  .task{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .task > summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:center;gap:14px}
+  .task > summary::-webkit-details-marker{display:none}
+  .num{flex:0 0 auto;width:34px;height:34px;border-radius:10px;background:var(--brand);color:#fff;font-weight:800;
+    display:grid;place-items:center;font-size:15px}
+  .task .t-main{flex:1;min-width:0}
+  .task .t-main h3{margin:0;font-size:16.5px;font-weight:700}
+  .task .t-main .t-sub{font-size:13px;color:var(--sub);margin-top:2px}
+  .badge{flex:0 0 auto;font-size:12px;font-weight:700;padding:5px 10px;border-radius:999px;background:var(--accent-soft);color:#0b7a54;white-space:nowrap}
+  .badge.won{background:#eef1ff;color:#3a4bc8}
+  .badge.hwang{background:#e9f7ef;color:#0b7a54}
+  .arrow{flex:0 0 auto;color:var(--sub);transition:.2s;font-size:13px}
+  details[open] .arrow{transform:rotate(180deg)}
+  .t-body{padding:2px 20px 20px 68px;border-top:1px solid var(--line);margin-top:-2px}
+  .t-body .row{display:grid;grid-template-columns:120px 1fr;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:14px}
+  .t-body .row:last-child{border-bottom:none}
+  .t-body .k{color:var(--sub);font-weight:700;font-size:13px}
+  .t-body ul{margin:4px 0 0;padding-left:18px}
+  .t-body li{margin:3px 0;font-size:14px}
+  .newtip{margin-top:12px;background:var(--warn-soft);border:1px solid #f3dcae;border-radius:12px;padding:12px 14px;font-size:13.5px;color:#7a4d09}
+  .newtip b{color:var(--warn)}
+
+  /* ===== Timeline ===== */
+  .tl{position:relative;margin-top:6px}
+  .tl-row{display:grid;grid-template-columns:70px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
+  .tl-row:last-child{border-bottom:none}
+  .tl-m{font-weight:800;color:var(--brand);font-size:15px;padding-top:2px}
+  .tl-items{display:flex;flex-wrap:wrap;gap:8px}
+  .tl-items span{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:6px 11px;font-size:13px;font-weight:500;box-shadow:var(--shadow)}
+
+  /* ===== Programs table ===== */
+  .progs{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  table{border-collapse:collapse;width:100%;font-size:13.8px}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#f2f4fa;font-size:12.5px;color:var(--sub);font-weight:700;letter-spacing:.02em}
+  tr:last-child td{border-bottom:none}
+  td .p-name{font-weight:700}
+  td small{color:var(--sub)}
+
+  /* ===== Files / footer ===== */
+  .files{background:linear-gradient(135deg,#0f172a,#1e293b);color:#e5e9f5;border-radius:var(--radius);padding:24px 24px}
+  .files h3{margin:0 0 6px;font-size:17px;color:#fff}
+  .files p{margin:0 0 14px;color:#aeb6cc;font-size:14px}
+  .filegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+  .filegrid div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:11px;padding:12px 14px;font-size:13.5px}
+  .filegrid b{color:#fff}
+  .filegrid small{color:#9aa3bd;display:block;margin-top:2px}
+
+  footer{padding:30px 0 50px;color:var(--sub);font-size:13px;text-align:center}
+  .disc{max-width:760px;margin:18px auto 0;font-size:12px;color:#9099a8;line-height:1.6}
+
+  @media(max-width:760px){
+    .g3,.g2,.staff,.filegrid{grid-template-columns:1fr}
+    .hero h1{font-size:27px}
+    .t-body{padding-left:20px}
+    .t-body .row{grid-template-columns:96px 1fr}
+  }
+  @media print{
+    nav.toc{display:none}
+    .task,.mini,.person,.progs{box-shadow:none}
+    details{break-inside:avoid}
+    details:not([open]) .t-body{display:block}
+    body{background:#fff}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="tag">신규·전입 교사 안내용</span>
+    <h1>강서중학교 연구부 업무 안내</h1>
+    <p>연구부가 어떤 일을 하고, 언제·누가 맡는지 한눈에 볼 수 있도록 정리했습니다. 처음 오신 선생님이 학교 흐름을 빠르게 파악하는 데 도움이 되길 바랍니다.</p>
+    <div class="meta">
+      <span>📚 학습·진로·상담·독서를 아우르는 부서</span>
+      <span>👥 담당: 황은주 · 원명숙</span>
+      <span>🗓️ 2026학년도 기준</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="wrap">
+    <a href="#intro">연구부란</a>
+    <a href="#staff">담당·업무분장</a>
+    <a href="#tasks">주요 업무 10</a>
+    <a href="#programs">연간 주요 사업</a>
+    <a href="#timeline">연간 일정</a>
+    <a href="#files">자료 위치</a>
+  </div>
+</nav>
+
+<!-- INTRO -->
+<section id="intro">
+  <div class="wrap">
+    <div class="sec-head"><h2>연구부는 어떤 곳인가요</h2><span class="kr">한 줄 요약</span></div>
+    <p class="lead">연구부는 <b>수업과 배움의 질을 높이는 일</b>을 중심으로, 교사의 전문성 신장(자율장학·학습공동체)부터 학생의 진로·상담·인성·기초학력·독서, 그리고 방과후학교 운영까지 폭넓게 담당합니다. 작은 학교의 특성을 살려 여러 업무가 서로 연결되어 돌아갑니다.</p>
+    <div class="grid g3">
+      <div class="mini"><div class="ic">🧑‍🏫</div><h4>교사 성장 지원</h4><p>더배움공동체(전문적 학습공동체), 수업공개·자율장학, 교내 연수를 통해 함께 성장하는 교무실 분위기를 만듭니다.</p></div>
+      <div class="mini"><div class="ic">🌱</div><h4>학생 성장 지원</h4><p>진로·상담(Wee클래스), 인성교육, 기초학력 책임교육으로 학생 한 명 한 명의 전인적 성장을 돕습니다.</p></div>
+      <div class="mini"><div class="ic">📖</div><h4>배움 환경 조성</h4><p>도서실(강나루 글방)·독서교육, 방과후학교, 정보통신 윤리교육으로 배움의 폭을 넓힙니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- STAFF -->
+<section id="staff">
+  <div class="wrap">
+    <div class="sec-head"><h2>담당 선생님과 업무 분장</h2><span class="kr">누가 무엇을 맡나요</span></div>
+    <p class="lead">업무를 시작하며 궁금한 점이 있으면 아래 담당 선생님께 먼저 여쭤보세요. 협의가 필요한 큰 업무(기초학력 등)는 협의회를 통해 함께 진행합니다.</p>
+    <div class="staff">
+      <div class="person">
+        <div class="top">
+          <div class="avatar" style="background:#0e9f6e">황</div>
+          <div><h4>황은주 선생님</h4><div class="role">교사 성장 · 교육과정 · 독서</div></div>
+        </div>
+        <div class="chips">
+          <span class="chip g">더배움공동체</span>
+          <span class="chip g">작은학교 희망 만들기</span>
+          <span class="chip g">자율장학·수업공개</span>
+          <span class="chip g">도서실·독서교육</span>
+        </div>
+      </div>
+      <div class="person">
+        <div class="top">
+          <div class="avatar" style="background:#2f5bea">원</div>
+          <div><h4>원명숙 선생님</h4><div class="role">진로·상담 · 학생 지원 · 방과후</div></div>
+        </div>
+        <div class="chips">
+          <span class="chip">진로·상담 교육</span>
+          <span class="chip">Wee 클래스</span>
+          <span class="chip">인성교육</span>
+          <span class="chip">방과후학교</span>
+          <span class="chip">기초학력 책임교육</span>
+          <span class="chip">정보통신 윤리교육</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TASKS -->
+<section id="tasks">
+  <div class="wrap">
+    <div class="sec-head"><h2>연구부 주요 업무 10가지</h2><span class="kr">카드를 눌러 자세히 보기</span></div>
+    <p class="lead">각 업무의 목적·시기·담당을 정리하고, <b>신규·전입 교사가 알아두면 좋은 점</b>을 함께 적었습니다.</p>
+    <div class="tasks">
+
+      <details class="task" open>
+        <summary>
+          <div class="num">1</div>
+          <div class="t-main"><h3>더배움공동체 운영</h3><div class="t-sub">전문적 학습공동체 · 함께 배우고 나누는 교사 모임</div></div>
+          <span class="badge hwang">황은주</span><span class="arrow">▾</span>
+        </summary>
+        <div class="t-body">
+          <div class="row"><div class="k">목적</div><div>교사가 주인의식을 갖고 참여해 전문성을 기르고, 참여·소통의 학교문화로 학교혁신 방향을 공유</div></div>
+          <div class="row"><div class="k">운영 방식</div><div>
+            <ul>
+              <li>1주차 · 교육활동 전체협의회</li>
+              <li>2주차 · 학년별/교과별/주제별 수업나눔 등 소모임</li>
+              <li>3주차 · 학교 밖 교사별 더배움공동체 활동</li>
+              <li>4주차 · 교직원이 함께하는 소통과 역량 강화의 날</li>
+            </ul></div></div>
+          <div class="row"><div class="k">시기</div><div>연중(주차별 운영)</div></div>
+          <div class="newtip"><b>신규교사 TIP</b> · 수업나눔과 협의회에 부담 없이 참여하면 됩니다. 작은 학교라 전 교직원이 함께 논의하는 자리가 많아요.</div>
+        </div>
+      </details>
+
+      <details class="task">
+        <summary>
+          <div class="num">2</div>
+          <div class="t-main"><h3>더 나은 작은학교 희망 만들기</h3><div class="t-sub">통합·융합 교육과정으로 작지만 강한 학교</div></div>
+          <span class="badge hwang">황은주</span><span class="arrow">▾</span>
+        </summary>
+        <div class="t-body">
+          <div class="row"><div class="k">목적</div><div>학년군·무학년 통합형 교육과정으로 소인수 학급의 한계를 보완하고 창의·인성 인재 육성</div></div>
+          <div class="row"><div class="k">주요 활동</div><div>
+            <ul>
+              <li>주제 중심 테마형 융합수업(독도·통일·다문화·한글사랑·서면의 역사 등) — 연중</li>
+              <li>진로 캠프(자기주도학습, 미래 직업 등) — 5~11월</li>
+              <li>신입생 유치 학교 홍보 — 11월</li>
+              <li>꿈·끼 탐색(꽃꽂이 등 진로 탐색) — 5월 / 학생 동아리 지원 — 4~12월</li>
+            </ul></div></div>
+          <div class="newtip"><b>신규교사 TIP</b> · 본인 교과를 융합수업 주제와 연결해 보면 참여가 자연스럽습니다.</div>
+        </div>
+      </details>
+
+      <details class="task">
+        <summary>
+          <div class="num">3</div>
+          <div class="t-main"><h3>교내 자율장학 · 연수 (학부모 수업공개)</h3><div class="t-sub">연 2회 전교사 수업공개 · 동료장학</div></div>
+          <span class="badge hwang">황은주</span><span class="arrow">▾</span>
+        </summary>
+        <div class="t-body">
+          <div class="row"><div class="k">목적</div><div>수업공개·동료장학으로 교수·학습 방법을 개선하고 교과 전문성 신장, 학부모와 소통</div></div>
+          <div class="row"><div class="k">운영 시기</div><div>1학기 6월 9일(월) · 2학기 10월 20일(월) <small>(교육과정에 따라 변경 가능)</small></div></div>
+          <div class="row"><div class="k">방식</div><div>연 2회 전교사 수업 공개(2~4교시), 학부모 참관, 가정학습 지도 안내</div></div>
+          <div class="newtip"><b>신규교사 TIP</b> · 전교사 대상이라 신규 선생님도 수업을 1회 공개하게 됩니다. 미리 공개 차시를 정해두면 준비가 수월해요. 관련 자료: <i>학부모 대상 수업공개</i> 폴더.</div>
+        </div>
+      </details>
+
+      <details class="task">
+        <summary>
+          <div class="num">4</div>
+          <div class="t-main"><h3>진로 · 상담 교육</h3><div class="t-sub">진로검사·진로상담실·드림레터</div></div>
+          <span class="badge won">원명숙</span><span class="arrow">▾</span>
+        </summary>
+        <div class="t-body">
+          <div class="row"><div class="k">목적</div><div>학생의 진로를 창의적으로 개발하고 합리적 의사결정 능력을 기르는 진로상담 활성화</div></div>
+          <div class="row"><div class="k">주요 활동</div><div>
+            <ul>
+              <li>표준화 심리검사 — 1학년 BRISM Plus, 2학년 RIASEC, 3학년 MIT 전공흥미검사(4월, 결과 해석활동)</li>
+              <li>학부모 진로소식지 「드림레터」 격주 발행</li>
+              <li>1학년 자유학기제 진로탐색(ESG 기업가정신, 34시간, 2학기)</li>
+              <li>학부모 대상 진로진학 설명회(4월), 교사 대상 진로진학 연수</li>
+            </ul></div></div>
+          <div class="row"><div class="k">시기</div><div>연중 / 검사·설명회 4월 집중</div></div>
+        </div>
+      </details>
+
+      <details class="task">
+        <summary>
+          <div class="num">5</div>
+          <div class="t-main"><h3>Wee 클래스 운영</h3><div class="t-sub">상담·정서 지원 · 위기 학생 조기 발견</div></div>
+          <span class="badge won">원명숙</span><span class="arrow">▾</span>
+        </summary>
+        <div class="t-body">
+          <div class="row"><div class="k">목적</div><div>상담으로 학생 잠재력을 발견하고, 부적응·위기 학생을 조기에 발견해 정서적으로 지지</div></div>
+          <div class="row"><div class="k">주요 활동</div><div>
+            <ul>
+              <li>사이버·전화·이메일 상담, 돌봄학생 파악 및 상담(심리검사·미술심리치료)</li>
+              <li>Wee센터 연계 순회상담(춘천 Wee센터·강원청소년상담지원센터)</li>
+              <li>상담주간·집단상담(4월, 5·10월), 학부모 상담</li>
+            </ul></div></div>
+          <div class="row"><div class="k">원칙</div><div>상담내용 비밀보장(자살·폭력·상해 등 긴급 상황은 예외적으로 보호자·담임·관리자에 공유)</div></div>
+          <div class="newtip"><b>신규교사 TIP</b> · 담임으로서 걱정되는 학생이 있으면 상담 의뢰서를 통해 연계할 수 있습니다. 관련 자료: <i>26 상담</i> 폴더의 담임교사 접수면접지.</div>
+        </div>
+      </details>
+
+      <details class="task">
+        <summary>
+          <div class="num">6</div>
+          <div class="t-main"><h3>인성교육</h3><div class="t-sub">인성교육진흥법 기반 · 교육과정 연계</div></div>
+          <span class="badge won">원명숙</span><span class="arrow">▾</span>
+        </summary>
+        <div class="t-body">
+          <div class="row"><div class="k">근거</div><div>인성교육진흥법 제10조, 2026 강원교육청 인성교육 시행계획</div></div>
+          <div class="row"><div class="k">주요 과제</div><div>
+            <ul>
+              <li>교육과정 중심 인성교육 내실화, 교원 인성교육 역량 강화(3월)</li>
+              <li>민주적 학교문화 조성, 소통·배려·존중하는 학교생활(월 2회)</li>
+              <li>가정·지역사회와 함께하는 인성교육(상담주간·학부모회 연계)</li>
+            </ul></div></div>
+          <div class="newtip"><b>신규교사 TIP</b> · 교원은 연 1시간 이상 인성교육 관련 연수를 이수해야 합니다.</div>
+        </div>
+      </details>
+
+      <details class="task">
+        <summary>
+          <div class="num">7</div>
+          <div class="t-main"><h3>방과후학교 운영</h3><div class="t-sub">1인 1악기 · 교과 프로그램</div></div>
+          <span class="badge won">원명숙</span><span class="arrow">▾</span>
+        </summary>
+        <div class="t-body">
+          <div class="row"><div class="k">목적</div><div>자기주도 학습력·소질·특기 신장, 사교육비 경감과 학교 신뢰 구축</div></div>
+          <div class="row"><div class="k">개설 강좌</div><div>
+            <ul>
+              <li>진로적성(1인 1악기): 플룻·클라리넷·색소폰·드럼 — 외부강사</li>
+              <li>교과 프로그램: 국어·영어·수학·사회·과학 — 본교 교사</li>
+            </ul></div></div>
+          <div class="row"><div class="k">운영 시간</div><div>7~8교시(15:10~16:40), 요일별 1인1악기/교과프로그램 편성</div></div>
+          <div class="newtip"><b>신규교사 TIP</b> · 본인 교과 방과후 강좌를 맡게 될 수 있습니다. 운영계획서는 <i>2026학년도 방과후학교 운영계획서</i> 참고.</div>
+        </div>
+      </details>
+
+      <details class="task">
+        <summary>
+          <div class="num">8</div>
+          <div class="t-main"><h3>기초학력 책임교육</h3><div class="t-sub">진단평가 · 학습지원대상학생 지도</div></div>
+          <span class="badge won">원명숙</span><span class="arrow">▾</span>
+        </summary>
+        <div class="t-body">
+          <div class="row"><div class="k">목적</div><div>모든 학생이 읽기·쓰기·셈하기 기초능력과 최저 기본학습능력을 갖추도록 지원</div></div>
+          <div class="row"><div class="k">선별·지도</div><div>
+            <ul>
+              <li>1학년 맞춤형 학업성취도 자율평가 1수준, 2·3학년 기초학력 진단검사(G형) 미도달 학생 선별</li>
+              <li>아침(08:30~08:55) 또는 점심(13:00~13:25) 시간 지도</li>
+              <li>진단보정시스템으로 향상도 점검 → 개별 맞춤형 교육계획에 활용</li>
+            </ul></div></div>
+          <div class="row"><div class="k">협의회</div><div>위원장 교장(박근영), 부위원장 교무(안재규), 간사·학습지원담당(변은선), 위원 황은주(국어)·서영자(수학)·김민정(영어), 순회상담(임지영)</div></div>
+          <div class="newtip"><b>신규교사 TIP</b> · 담당 교과에서 대상 학생이 나오면 책임지도 위원으로 지도에 참여합니다. 자료: <i>26 기초학력</i>, <i>기초학력 1차 향상도</i> 폴더.</div>
+        </div>
+      </details>
+
+      <details class="task">
+        <summary>
+          <div class="num">9</div>
+          <div class="t-main"><h3>도서실(강나루 글방) · 독서교육</h3><div class="t-sub">학교도서관 운영 · 한 학기 한 권 읽기</div></div>
+          <span class="badge hwang">황은주</span><span class="arrow">▾</span>
+        </summary>
+        <div class="t-body">
+          <div class="row"><div class="k">운영</div><div>개관 학기 중 08:30~16:30, 자율대출반납, 도서부원 중심 학생 주도 운영(장서 약 5,886권, 독서로 DLS)</div></div>
+          <div class="row"><div class="k">독서 활동</div><div>
+            <ul>
+              <li>교과 연계 「한 학기 한 권 읽기」, 인문소양·토론·논술 교육</li>
+              <li>독서 행사: 한글날 다행시, 다독상, 감사 백일장, 시화 만들기 등</li>
+              <li>도서구입(3월·9월), 장서점검·폐기(3·8월)</li>
+            </ul></div></div>
+          <div class="row"><div class="k">운영위</div><div>학교도서관운영위원회(자료선정위 겸) — 위원장 학교장, 간사 황은주</div></div>
+        </div>
+      </details>
+
+      <details class="task">
+        <summary>
+          <div class="num">10</div>
+          <div class="t-main"><h3>정보통신 윤리교육</h3><div class="t-sub">사이버 폭력 예방 · 미디어 과의존 예방</div></div>
+          <span class="badge won">원명숙</span><span class="arrow">▾</span>
+        </summary>
+        <div class="t-body">
+          <div class="row"><div class="k">목적</div><div>정보화 역기능에 대처하는 능력을 기르고 건전한 정보통신문화·사이버폭력 예방</div></div>
+          <div class="row"><div class="k">주요 활동</div><div>
+            <ul>
+              <li>게임·인터넷·스마트폰 중독 예방교육, 저작권 교육(교과 연계, 연 10시간)</li>
+              <li>도덕·사회·국어 교과 연계 정보통신 윤리교육</li>
+              <li>SNS 예절·사이버 폭력 예방 교육</li>
+            </ul></div></div>
+          <div class="newtip"><b>신규교사 TIP</b> · 디지털미디어 과의존 예방 사업과 연계됩니다. 자료: <i>디지털 과의존</i> 폴더.</div>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs">
+  <div class="wrap">
+    <div class="sec-head"><h2>연간 주요 사업 · 공문 업무</h2><span class="kr">외부 연계 프로그램</span></div>
+    <p class="lead">위 상시 업무 외에, 교육청·외부기관과 연계해 매년 신청·운영하는 사업들입니다. 대부분 수신 공문에 따라 신청서·명단을 제출하고 학생 참여를 지원합니다.</p>
+    <div class="progs">
+      <table>
+        <thead><tr><th style="width:34%">사업</th><th style="width:30%">내용</th><th>시기·비고</th></tr></thead>
+        <tbody>
+          <tr><td><div class="p-name">기초학력 진단평가</div><small>1~3학년</small></td><td>학기 초 기초학력 진단검사(국어·수학·영어)</td><td>3월</td></tr>
+          <tr><td><div class="p-name">기초학력 1차 향상도 검사</div></td><td>학습지원대상학생 향상도 확인</td><td>상반기 (교육청 일정)</td></tr>
+          <tr><td><div class="p-name">학습종합클리닉센터</div><small>춘천교육지원청</small></td><td>느린 학습자·경계선지능 학생 선별·연계 지원</td><td>연중 (신청 접수)</td></tr>
+          <tr><td><div class="p-name">디지털미디어 과의존 예방·해소</div></td><td>보호자교육·집단상담 신청, 예방 교육</td><td>연중</td></tr>
+          <tr><td><div class="p-name">장애인식개선교육 · 청각장애이해/수어교육</div></td><td>찾아가는 교육 신청, 장애발생예방교육</td><td>연중</td></tr>
+          <tr><td><div class="p-name">굿네이버스 창의적체험활동</div></td><td>생명존중·기후위기·도박예방 강사파견 교육</td><td>사전 신청</td></tr>
+          <tr><td><div class="p-name">인도주의 인성교육(HEY)</div><small>대한적십자사</small></td><td>삼성 지정기탁 찾아가는 인성교육</td><td>신청·운영</td></tr>
+          <tr><td><div class="p-name">1일 프로그램 「열음」</div></td><td>대안교육 체험 프로그램(생활교육 연계)</td><td>5월경 배정·운영</td></tr>
+          <tr><td><div class="p-name">특수교육원 체험프로그램</div></td><td>강원특수교육원(강릉·원주분원) 체험 운영</td><td>운영계획 알림</td></tr>
+          <tr><td><div class="p-name">각종 장학금</div><small>추천·명단 제출</small></td><td>박기범재단(다문화), 한수원 춘천수력, 댐주변지역 저소득층, 학교발전기금</td><td>공고별 상시</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="wrap">
+    <div class="sec-head"><h2>연간 일정 한눈에 보기</h2><span class="kr">월별 흐름</span></div>
+    <p class="lead">월별 대표 일정입니다. 세부 일정은 학사일정·수신 공문에 따라 조정될 수 있습니다.</p>
+    <div class="tl">
+      <div class="tl-row"><div class="tl-m">3월</div><div class="tl-items"><span>기초학력 진단평가</span><span>상담운영계획 수립</span><span>도서 이용교육·1차 도서구입</span><span>인성교육 역량 강화</span></div></div>
+      <div class="tl-row"><div class="tl-m">4월</div><div class="tl-items"><span>진로 심리검사·해석</span><span>학부모 진로진학 설명회</span><span>상담주간</span></div></div>
+      <div class="tl-row"><div class="tl-m">5–6월</div><div class="tl-items"><span>1학기 수업공개(6/9)</span><span>기초학력 1차 향상도</span><span>열음 프로그램</span><span>한 학기 한 권 읽기</span></div></div>
+      <div class="tl-row"><div class="tl-m">9월</div><div class="tl-items"><span>2차 도서구입</span><span>독서행사(한글날 연계)</span><span>2학기 진로탐색(자유학기)</span></div></div>
+      <div class="tl-row"><div class="tl-m">10월</div><div class="tl-items"><span>2학기 수업공개(10/20)</span><span>2차 상담주간</span></div></div>
+      <div class="tl-row"><div class="tl-m">11–12월</div><div class="tl-items"><span>신입생 유치 홍보</span><span>진로·독서 융합활동</span><span>올해의 책 선정</span></div></div>
+      <div class="tl-row"><div class="tl-m">연중</div><div class="tl-items"><span>더배움공동체(주차별)</span><span>Wee클래스 상담</span><span>방과후학교</span><span>정보통신 윤리교육</span><span>각종 장학금·공문 업무</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FILES -->
+<section id="files">
+  <div class="wrap">
+    <div class="sec-head"><h2>자료는 어디에 있나요</h2><span class="kr">폴더 안내</span></div>
+    <p class="lead">업무별 계획서·공문·서식은 연구부 공유 폴더(「26 연구」)에 정리되어 있습니다. 급할 때 아래를 참고하세요.</p>
+    <div class="files">
+      <h3>「26 연구」 폴더 주요 구성</h3>
+      <p>계획서 원본은 <b>학교교육계획서(연구부)</b> 파일에서 전체 내용을 확인할 수 있습니다.</p>
+      <div class="filegrid">
+        <div><b>26 상담</b><small>상담·위클래스 운영계획, 접수면접지</small></div>
+        <div><b>26 기초학력 / 기초학력 1차 향상도</b><small>진단평가·향상도·체크리스트</small></div>
+        <div><b>26 학습종합클리닉</b><small>신청 서식·명단·선별 체크리스트</small></div>
+        <div><b>26 장학금 / 수자원 장학금 / 26 박기범 장학금</b><small>추천 명부·서식</small></div>
+        <div><b>학부모 대상 수업공개</b><small>운영계획·안내문</small></div>
+        <div><b>디지털 과의존 / 장애인식개선교육</b><small>예방교육 신청서</small></div>
+        <div><b>열음 / 특수교육원 체험 / 굿네이버스</b><small>체험·창체 운영계획</small></div>
+        <div><b>방과후학교 운영계획서</b><small>강좌·시간표</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    강서중학교 연구부 · 신규·전입 교사 업무 안내 · 2026학년도<br>
+    <span class="disc">본 자료는 「학교교육계획서(연구부)」와 연구부 업무 폴더를 바탕으로 신규·전입 교사 안내용으로 정리한 것입니다. 날짜·담당·세부 내용은 학사일정 및 수신 공문에 따라 변경될 수 있으니, 실제 업무 시 최신 계획서와 담당 선생님 안내를 확인해 주세요.</span>
+  </div>
+</footer>
+
+</body>
+</html>

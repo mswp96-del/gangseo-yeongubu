@@ -116,9 +116,14 @@
   .files h3{margin:0 0 6px;font-size:17px;color:#fff}
   .files p{margin:0 0 14px;color:#aeb6cc;font-size:14px}
   .filegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-  .filegrid div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:11px;padding:12px 14px;font-size:13.5px}
+  .filegrid > div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:11px;padding:12px 14px;font-size:13.5px}
   .filegrid b{color:#fff}
   .filegrid small{color:#9aa3bd;display:block;margin-top:2px}
+  .filegrid .lock{color:#8a93ad;font-size:11.5px;display:inline-block;margin-top:7px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:2px 8px;border-radius:999px}
+  .dl{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}
+  .dl a{display:inline-flex;align-items:center;gap:5px;background:#2f5bea;color:#fff;text-decoration:none;font-size:12px;font-weight:600;padding:5px 10px;border-radius:8px;transition:.15s}
+  .dl a:hover{background:#4a71f0}
+  .filegrid .open{border-color:rgba(120,150,255,.35)}
 
   footer{padding:30px 0 50px;color:var(--sub);font-size:13px;text-align:center}
   .disc{max-width:760px;margin:18px auto 0;font-size:12px;color:#9099a8;line-height:1.6}
@@ -452,19 +457,21 @@
 <section id="files">
   <div class="wrap">
     <div class="sec-head"><h2>자료는 어디에 있나요</h2><span class="kr">폴더 안내</span></div>
-    <p class="lead">업무별 계획서·공문·서식은 연구부 공유 폴더(「26 연구」)에 정리되어 있습니다. 급할 때 아래를 참고하세요.</p>
+    <p class="lead">업무별 계획서·공문·서식은 연구부 공유 폴더(「26 연구」)에 정리되어 있습니다. 개인정보가 없는 일반 문서는 아래에서 바로 열 수 있고, 학생 개인정보가 포함된 폴더는 보안을 위해 링크를 두지 않았으니 교내 공유폴더에서 확인해 주세요.</p>
     <div class="files">
       <h3>「26 연구」 폴더 주요 구성</h3>
-      <p>계획서 원본은 <b>학교교육계획서(연구부)</b> 파일에서 전체 내용을 확인할 수 있습니다.</p>
+      <p>계획서 원본은 <b>학교교육계획서(연구부)</b> 파일에서 전체 내용을 확인할 수 있습니다. 아래 파란 버튼이 있는 문서는 바로 열람·내려받기가 가능합니다.</p>
       <div class="filegrid">
-        <div><b>26 상담</b><small>상담·위클래스 운영계획, 접수면접지</small></div>
-        <div><b>26 기초학력 / 기초학력 1차 향상도</b><small>진단평가·향상도·체크리스트</small></div>
-        <div><b>26 학습종합클리닉</b><small>신청 서식·명단·선별 체크리스트</small></div>
-        <div><b>26 장학금 / 수자원 장학금 / 26 박기범 장학금</b><small>추천 명부·서식</small></div>
-        <div><b>학부모 대상 수업공개</b><small>운영계획·안내문</small></div>
-        <div><b>디지털 과의존 / 장애인식개선교육</b><small>예방교육 신청서</small></div>
-        <div><b>열음 / 특수교육원 체험 / 굿네이버스</b><small>체험·창체 운영계획</small></div>
-        <div><b>방과후학교 운영계획서</b><small>강좌·시간표</small></div>
+        <div class="open"><b>학부모 대상 수업공개</b><small>운영계획·안내문 (공개 문서)</small>
+          <div class="dl"><a href="학부모수업공개_운영계획.hwp">📄 운영 계획</a><a href="학부모수업공개_안내문.hwp">📄 안내문</a></div></div>
+        <div class="open"><b>방과후학교 운영계획서</b><small>강좌·시간표 (공개 문서)</small>
+          <div class="dl"><a href="방과후학교_운영계획서.hwp">📄 운영계획서</a></div></div>
+        <div><b>26 상담</b><small>상담·위클래스 운영계획, 접수면접지</small><span class="lock">🔒 개인정보 · 교내에서 확인</span></div>
+        <div><b>26 기초학력 / 기초학력 1차 향상도</b><small>진단평가·향상도·체크리스트</small><span class="lock">🔒 개인정보 · 교내에서 확인</span></div>
+        <div><b>26 학습종합클리닉</b><small>신청 서식·명단·선별 체크리스트</small><span class="lock">🔒 개인정보 · 교내에서 확인</span></div>
+        <div><b>26 장학금 / 수자원 장학금 / 26 박기범 장학금</b><small>추천 명부·서식</small><span class="lock">🔒 개인정보 · 교내에서 확인</span></div>
+        <div><b>디지털 과의존 / 장애인식개선교육</b><small>예방교육 신청서</small><span class="lock">🔒 개인정보 · 교내에서 확인</span></div>
+        <div><b>열음 / 특수교육원 체험 / 굿네이버스</b><small>체험·창체 운영계획</small><span class="lock">🔒 개인정보 · 교내에서 확인</span></div>
       </div>
     </div>
   </div>
